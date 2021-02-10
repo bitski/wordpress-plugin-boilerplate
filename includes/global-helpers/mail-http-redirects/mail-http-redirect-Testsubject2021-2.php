@@ -1,0 +1,1 @@
+<?php header("Location: mailto:peter@bitski.de?subject=Testsubject2021-2");

@@ -1,0 +1,1 @@
+<?php header("Location: mailto:test2@web.de?subject=testsubject2");
