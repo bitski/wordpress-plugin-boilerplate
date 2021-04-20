@@ -132,7 +132,8 @@ class Bitski_Wp_Boilerplate_Post_Types
             'hierarchical'       => false,
             'menu_position'      => 5,
             'menu_icon'          => 'dashicons-food',
-            'taxonomies'         => [],
+            'taxonomies'         => ['rezept'],
+            'show_in_rest'       => true,
             'supports'           => [
                 'title',
                 'editor',
@@ -140,6 +141,8 @@ class Bitski_Wp_Boilerplate_Post_Types
                 'thumbnail',
                 'excerpt',
                 'comments',
+                'page-attributes',
+                'custom-fields',
             ],
         ];
 
@@ -176,6 +179,7 @@ class Bitski_Wp_Boilerplate_Post_Types
                 'hierarchical'      => true,
                 'labels'            => $labels,
                 'show_ui'           => true,
+                'show_in_rest'      => true,
                 'show_admin_column' => true,
                 'query_var'         => true,
                 'rewrite'           => ['slug' => 'rezept/kategorie'],
@@ -189,7 +193,7 @@ class Bitski_Wp_Boilerplate_Post_Types
      *
      * @since    1.0.0
      */
-    public static function unregister_post_type()
+    public static function unregister_post_type(): void
     {
         unregister_post_type('rezept');
     }
@@ -200,7 +204,7 @@ class Bitski_Wp_Boilerplate_Post_Types
      *
      * @since    1.0.0
      */
-    public static function unregister_taxonomy()
+    public static function unregister_taxonomy(): void
     {
         unregister_taxonomy('kategorie');
     }

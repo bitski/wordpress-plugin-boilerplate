@@ -11,6 +11,9 @@
 
 /**
  * Global helper function returning HTTP redirect header
+ *
+ * @param  string  $mail
+ * @param  string  $subject
  */
 function mail_http_redirect(string $mail, string $subject)
 {
@@ -21,7 +24,7 @@ function mail_http_redirect(string $mail, string $subject)
      * @access   private
      * @var      object $obj_mail_helper Stores the mail helper object.
      */
-    $obj_mail_helper = new Bitski_Wp_Boilerplate_Mail_Helper;
+    $obj_mail_helper = new Bitski_Wp_Boilerplate_Mail_Helper();
 
     Bitski_Wp_Boilerplate_Global_Functions::get_mail_http_redirect(
         $mail,
@@ -42,7 +45,7 @@ class Bitski_Wp_Boilerplate_Global_Functions
         string $mail,
         string $subject,
         object $obj_mail_helper
-    ) {
+    ): void {
         echo $obj_mail_helper->mail_http_redirect($mail, $subject);
     }
 }

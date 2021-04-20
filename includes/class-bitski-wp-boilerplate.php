@@ -233,6 +233,9 @@ class Bitski_Wp_Boilerplate
             $this->get_plugin_name(), $this->get_version()
         );
 
+        /**
+         * WP hooks
+         */
         $this->loader->add_action(
             'wp_enqueue_scripts',
             $plugin_public,
@@ -242,6 +245,21 @@ class Bitski_Wp_Boilerplate
             'wp_enqueue_scripts',
             $plugin_public,
             'enqueue_scripts'
+        );
+
+        $this->loader->add_filter(
+            'script_loader_tag',
+            $plugin_public,
+            'filter_script_loader_tag',
+            10,
+            3
+        );
+
+        $this->loader->add_action(
+            'wp_head',
+            $plugin_public,
+            'preload_local_fonts',
+            10
         );
     }
 
